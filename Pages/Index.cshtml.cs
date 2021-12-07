@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BitPredictor.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,15 +12,18 @@ namespace BitPredictor.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
+        public JsonPullService JsonPullService;
+        public List<List<double>> Prices { get; private set; }
+        public IndexModel(ILogger<IndexModel> logger,
+            JsonPullService jsonPullService)
         {
             _logger = logger;
+            JsonPullService = jsonPullService;
         }
 
         public void OnGet()
         {
-
+            //Prices = JsonPullService.getPrices();
         }
     }
 }

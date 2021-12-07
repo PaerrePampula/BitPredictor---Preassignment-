@@ -1,0 +1,30 @@
+﻿@page
+@model BitPredictor.Pages.TimeMachineModel
+@{
+}
+<form method="get" action="">
+    <label for="start">Start date:</label>
+    @*Make sure that the date is not higher than the current date*@
+    <input type="date" id="start" name="start"
+           value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="StartDate">
+
+    <label for="start">End date:</label>
+
+    <input type="date" id="end" name="end"
+           value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="EndDate">
+
+    <input type="submit" value="Submit" class="submit">
+</form>
+@if (Model.HighestPrice != null)
+{
+    <h1>
+        The best day for buying is @Model.LowestPrice.getDateTime() at @Model.LowestPrice.getPriceToString()    
+    </h1>
+    <h1>
+        The best day for selling is @Model.HighestPrice.getDateTime() at @Model.HighestPrice.getPriceToString()
+    </h1>
+}
+@if (Model.QueryComplete == true && Model.HighestPrice == null) 
+{
+    <h1>The inputted dates are purely bearish, no buying or selling should be done between these dates</h1>
+}

@@ -84,7 +84,7 @@ body {
     background-color: #111; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    transition: 0.25s; /* 0.25 second transition effect to slide in the sidenav */
 }
 
     /* The navigation menu links */
@@ -126,4 +126,13 @@ body {
         .sidenav a {
             font-size: 18px;
         }
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input, label {
+    margin: .4rem 0;
 }

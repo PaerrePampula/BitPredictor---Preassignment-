@@ -1,0 +1,32 @@
+﻿
+@page
+@model BitPredictor.Pages.BullishModel
+@{
+}
+<form method="get" action="">
+    <label for="start">Start date:</label>
+    @*Make sure that the date is not higher than the current date*@
+    <input type="date" id="start" name="start"
+           value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="StartDate">
+
+    <label for="start">End date:</label>
+
+    <input type="date" id="end" name="end"
+           value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="EndDate">
+
+    <input type="submit" value="Submit" class="submit">
+</form>
+@if (Model.EndDate != null)
+{
+    if (Model.LongestTrend > 0)
+    {
+        <h1>The longest trend between @Model.StartDate and @Model.EndDate is @Model.LongestTrend day(s)</h1>
+    }
+    else
+    {
+        <h1>No bearish trending occured during the inputted dates!</h1>
+    }
+
+
+
+}

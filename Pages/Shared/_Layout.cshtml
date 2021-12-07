@@ -12,16 +12,16 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container" style="margin-left:2px;">
-                <span onclick="opensideNavigation()">NAVIGATION</span>
+                <span onclick="opensideNavigation()" style="cursor:pointer;">NAVIGATION</span>
             </div>
         </nav>
     </header>
     <div id="sidenavigation" class="sidenav">
         <a href="#" class="closebtn" onclick="closesideNavigation()">&times;</a>
-        <a href="#">Home</a>
-        <a href="#">Longest bullish market</a>
-        <a href="#">Largest trading volume</a>
-        <a href="#">$ TIME MACHINE $</a>
+        <a asp-page="Index">Home</a>
+        <a asp-page="Bullish">Longest bullish market</a>
+        <a asp-page="Volume">Largest trading volume</a>
+        <a asp-page="TimeMachine">Time machine</a>
     </div>
     <div class="container">
         <main role="main" class="pb-3">

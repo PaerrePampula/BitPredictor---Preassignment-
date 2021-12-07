@@ -2,9 +2,9 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
-/* Set the width of the side navigation to 250px */
+/* Set the width of the side navigation to 450px */
 function opensideNavigation() {
-    document.getElementById("sidenavigation").style.width = "250px";
+    document.getElementById("sidenavigation").style.width = "450px";
 }
 
 /* Set the width of the side navigation to 0 */

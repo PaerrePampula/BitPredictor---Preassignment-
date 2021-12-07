@@ -1,0 +1,22 @@
+﻿@page
+@model BitPredictor.Pages.VolumeModel
+@{
+}
+<form method="get" action="">
+    <label for="start">Start date:</label>
+    @*Make sure that the date is not higher than the current date*@
+    <input type="date" id="start" name="start"
+           value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="StartDate">
+
+    <label for="start">End date:</label>
+
+    <input type="date" id="end" name="end"
+           value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="EndDate">
+
+    <input type="submit" value="Submit" class="submit">
+</form>
+@if (Model.DatePrice != null)
+{
+        <h1>The highest volume between given dates was on @Model.DatePrice.getDateTime().DayOfWeek @Model.DatePrice.getDateTime().Month @Model.DatePrice.getDateTime().Year, the value was
+        @Model.DatePrice.getPriceToString() EUR</h1>
+}

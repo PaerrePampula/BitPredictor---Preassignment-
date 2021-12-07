@@ -18,6 +18,7 @@ namespace BitPredictor.Pages
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
         public int LongestTrend { get; set; }
+        public bool QueryComplete { get; set; }
         public BullishModel(JsonPullService jsonPullService, CryptoCalculationService cryptoCalculationService)
         {
             JsonPullService = jsonPullService;
@@ -34,6 +35,7 @@ namespace BitPredictor.Pages
                 long unixStart = StartDate.ToUnixTimeSeconds();
                 long unixEnd = EndDate.ToUnixTimeSeconds();
                 LongestTrend = CryptoCalculationService.getLongestBearishTrendForTimes(JsonPullService.GetBTCData(unixStart, unixEnd).prices);
+                QueryComplete = true;
             }
 
         }

@@ -2,6 +2,11 @@
 @model BitPredictor.Pages.TimeMachineModel
 @{
 }
+<h1 style="text-align:center">HOW TO USE:</h1>
+<p>
+    Select start and end date for range, the application will give information on the best days to sell and buy Bitcoin.
+    If there is one continuous bear market, no result will be given.
+</p>
 <form method="get" action="">
     <label for="start">Start date:</label>
     @*Make sure that the date is not higher than the current date*@
@@ -17,14 +22,35 @@
 </form>
 @if (Model.HighestPrice != null)
 {
-    <h1>
-        The best day for buying is @Model.LowestPrice.getDateTime() at @Model.LowestPrice.getPriceToString()    
-    </h1>
-    <h1>
-        The best day for selling is @Model.HighestPrice.getDateTime() at @Model.HighestPrice.getPriceToString()
-    </h1>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">BUY DAY</h5>
+                <p class="card-text">DATE: @Model.LowestPrice.getDateTime()
+                PRICE :@Model.LowestPrice.getPriceToString() EUR</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">SELL DAY</h5>
+                <p class="card-text">
+                    DATE: @Model.HighestPrice.getDateTime()
+                    PRICE :@Model.HighestPrice.getPriceToString() EUR
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 }
-@if (Model.QueryComplete == true && Model.HighestPrice == null) 
+
+@if (Model.QueryComplete == true && Model.HighestPrice == null)
 {
     <h1>The inputted dates are purely bearish, no buying or selling should be done between these dates</h1>
 }
+
+
+

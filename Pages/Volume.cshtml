@@ -2,6 +2,10 @@
 @model BitPredictor.Pages.VolumeModel
 @{
 }
+<h1 style="text-align:center">HOW TO USE:</h1>
+<p>
+    Select start and end date for range, the application will give information on the biggest trading volume day.
+</p>
 <form method="get" action="">
     <label for="start">Start date:</label>
     @*Make sure that the date is not higher than the current date*@
@@ -17,6 +21,8 @@
 </form>
 @if (Model.DatePrice != null)
 {
-        <h1>The highest volume between given dates was on @Model.DatePrice.getDateTime().DayOfWeek @Model.DatePrice.getDateTime().Month @Model.DatePrice.getDateTime().Year, the value was
-        @Model.DatePrice.getPriceToString() EUR</h1>
+    <h1>
+        The highest volume between given dates was on @Model.DatePrice.getDateTime().DayOfWeek @Model.DatePrice.getDateTime().Month @Model.DatePrice.getDateTime().Year, the value was
+        @Model.DatePrice.getPriceToString() EUR
+    </h1>
 }

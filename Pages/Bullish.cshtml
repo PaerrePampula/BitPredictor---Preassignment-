@@ -3,6 +3,9 @@
 @model BitPredictor.Pages.BullishModel
 @{
 }
+<h1 style="text-align:center">HOW TO USE:</h1>
+<p>Select start and end date for range, the application will give information on the longest trending bull market 
+    between the start and end dates</p>
 <form method="get" action="">
     <label for="start">Start date:</label>
     @*Make sure that the date is not higher than the current date*@
@@ -16,7 +19,7 @@
 
     <input type="submit" value="Submit" class="submit">
 </form>
-@if (Model.EndDate != null)
+@if (Model.QueryComplete)
 {
     if (Model.LongestTrend > 0)
     {

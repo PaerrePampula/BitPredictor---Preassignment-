@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace BitPredictor.Services
 {
-
+    /// <summary>
+    /// Used to pull JSON files from the public API for bitcoin price history (COINGECKO)
+    /// </summary>
     public class JsonPullService
     {
         private static readonly HttpClient client = new HttpClient();

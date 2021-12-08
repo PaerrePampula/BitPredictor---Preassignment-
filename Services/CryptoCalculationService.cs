@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace BitPredictor.Services
 {
+    /// <summary>
+    /// Contains business logic for calculating trends, highest volumes and finding best dates for buying and selling
+    /// </summary>
     public class CryptoCalculationService
     {
-
-        public int getLongestBearishTrendForTimes(List<List<double>> prices)
+        /// <summary>
+        /// Returns the longest bearish market for a given list of dates and prices
+        /// </summary>
+        /// <param name="prices"></param>
+        /// <returns></returns>
+        public int GetLongestBearishTrendForTimes(List<List<double>> prices)
         {
             int longestTrend = 0;
             int currentTrend = 0;
@@ -29,6 +36,11 @@ namespace BitPredictor.Services
             }
             return longestTrend;
         }
+        /// <summary>
+        /// Returns the day from a list of dates and prices during which the volume was the highest.
+        /// </summary>
+        /// <param name="prices"></param>
+        /// <returns></returns>
         public DatePrice GetDatePriceForHighestVolume(List<List<double>> prices)
         {
             //The JSON contains the information for volume in the second index, access this one.
@@ -38,6 +50,8 @@ namespace BitPredictor.Services
             return datePrice;
         }
         /// <summary>
+        /// Returns best dates for buying end selling bitcoin for a given list of dates
+        /// The buy day will always predate the sell day
         /// First value returned is the lowest price
         /// Second one is the highest
         /// </summary>
@@ -126,6 +140,7 @@ namespace BitPredictor.Services
         
         #region Private methods
         /// <summary>
+        /// Finds index of the date that had the minimum value from a list
         /// A return value of -1 means that only decreasing values were found
         /// </summary>
         /// <param name="prices"></param>
@@ -148,6 +163,11 @@ namespace BitPredictor.Services
             if (priceOnlyDecreased) return -1;
             else return minimumIndex;
         }
+        /// <summary>
+        /// Finds index of the date that had the maximum value from a list
+        /// </summary>
+        /// <param name="prices"></param>
+        /// <returns></returns>
         int findMaximumIndex(List<List<double>> prices)
         {
             int maximumIndex = 0;

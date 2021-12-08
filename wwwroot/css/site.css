@@ -136,3 +136,10 @@ label {
 input, label {
     margin: .4rem 0;
 }
+.btclogo
+{
+    width:350px;
+    float:right;
+    opacity:35%;
+
+}

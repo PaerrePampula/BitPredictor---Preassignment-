@@ -34,7 +34,7 @@ namespace BitPredictor.Pages
                 EndDate = DateTimeOffset.ParseExact(dateEnd, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 long unixStart = StartDate.ToUnixTimeSeconds();
                 long unixEnd = EndDate.ToUnixTimeSeconds();
-                LongestTrend = CryptoCalculationService.getLongestBearishTrendForTimes(JsonPullService.GetBTCData(unixStart, unixEnd).prices);
+                LongestTrend = CryptoCalculationService.GetLongestBearishTrendForTimes(JsonPullService.GetBTCData(unixStart, unixEnd).prices);
                 QueryComplete = true;
             }
 

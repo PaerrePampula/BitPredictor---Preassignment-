@@ -8,17 +8,23 @@
     If there is one continuous bear market, no result will be given.
 </p>
 <form method="get" action="">
-    <label for="start">Start date:</label>
-    @*Make sure that the date is not higher than the current date*@
-    <input type="date" id="start" name="start"
-           value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="StartDate">
+    <div class="container bg-secondary text-white">
+        <div class="row">
+            <div class="col-sm">
+                <label for="start">Start date:</label>
+                @*Make sure that the date is not higher than the current date*@
+                <input type="date" id="start" name="start"
+                       value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="StartDate">
+            </div>
+            <div class="col-sm">
+                <label for="start">End date:</label>
 
-    <label for="start">End date:</label>
-
-    <input type="date" id="end" name="end"
-           value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="EndDate">
-
-    <input type="submit" value="Submit" class="submit">
+                <input type="date" id="end" name="end"
+                       value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="EndDate">
+            </div>
+        </div>
+        <input type="submit" value="Submit" class="submit">
+    </div>
 </form>
 @if (Model.HighestPrice != null)
 {
@@ -49,7 +55,7 @@
 
 @if (Model.QueryComplete == true && Model.HighestPrice == null)
 {
-    <h1>The inputted dates are purely bearish, no buying or selling should be done between these dates</h1>
+    <h1 class="text-danger">The inputted dates are purely bearish, no buying or selling should be done between these dates</h1>
 }
 
 

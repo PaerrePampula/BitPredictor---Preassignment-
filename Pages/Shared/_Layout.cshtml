@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="background-color: royalblue !important; ">
             <div class="container" style="margin-left:2px;">
-                <span onclick="opensideNavigation()" style="cursor:pointer;">NAVIGATION</span>
+                <span onclick="opensideNavigation()" style="cursor:pointer; color:white">NAVIGATION</span>
             </div>
         </nav>
     </header>
@@ -28,7 +28,7 @@
             @RenderBody()
         </main>
     </div>
-
+    <img class="btclogo" src="~/BTC_Logo.svg" alt="Alternate Text" />
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - BitPredictor - <a asp-area="" asp-page="/Privacy">Privacy</a>

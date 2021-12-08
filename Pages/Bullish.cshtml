@@ -7,17 +7,23 @@
 <p>Select start and end date for range, the application will give information on the longest trending bull market 
     between the start and end dates</p>
 <form method="get" action="">
-    <label for="start">Start date:</label>
-    @*Make sure that the date is not higher than the current date*@
-    <input type="date" id="start" name="start"
-           value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="StartDate">
+    <div class="container bg-secondary text-white">
+        <div class="row">
+            <div class="col-sm">
+                <label for="start">Start date:</label>
+                @*Make sure that the date is not higher than the current date*@
+                <input type="date" id="start" name="start"
+                       value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="StartDate">
+            </div>
+            <div class="col-sm">
+                <label for="start">End date:</label>
 
-    <label for="start">End date:</label>
-
-    <input type="date" id="end" name="end"
-           value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="EndDate">
-
-    <input type="submit" value="Submit" class="submit">
+                <input type="date" id="end" name="end"
+                       value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="EndDate">
+            </div>
+        </div>
+        <input type="submit" value="Submit" class="submit">
+    </div>
 </form>
 @if (Model.QueryComplete)
 {
@@ -27,7 +33,7 @@
     }
     else
     {
-        <h1>No bearish trending occured during the inputted dates!</h1>
+        <h1 class="text-danger">No bearish trending occured during the inputted dates!</h1>
     }
 
 

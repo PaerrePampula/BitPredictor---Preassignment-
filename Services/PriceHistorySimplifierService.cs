@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 /// </summary>
 namespace BitPredictor.Services
 {
+    /// <summary>
+    /// Used to simplify lists that were pulled using the json pull service
+    /// </summary>
     public static class PriceHistorySimplifierService
     {
         /// <summary>
@@ -23,6 +26,8 @@ namespace BitPredictor.Services
             int dayCount = 1;
             for (int i = 0; i < listOfValues.Count; i++)
             {
+                //86400000 is the amount of ticks per day on a millisecond level. The next price to add to the list must have a timestamp
+                //that has atleast 86400000 higher value than the last added price.
                 if (listOfValues[i][0] > coinPricePerDayList[dayCount-1][0] + 86400000)
                 {
                     coinPricePerDayList.Add(listOfValues[i]);
@@ -31,6 +36,11 @@ namespace BitPredictor.Services
             }
             return coinPricePerDayList;
         }
+        /// <summary>
+        /// Simply creates a dictionary from a list of values
+        /// </summary>
+        /// <param name="listOfValues"></param>
+        /// <returns></returns>
         public static Dictionary<long, double> CreateHashes(List<List<double>> listOfValues)
         {
             Dictionary<long, double> hashedValues = new Dictionary<long, double>();
